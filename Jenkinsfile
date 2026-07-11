@@ -2,7 +2,7 @@ pipeline {
   agent {label 'electronix'}
 
   stages {
-    stage ('Hello) {
+    stage ('Hello') {
            steps {
              echo "Hello Jenkins"
            }
