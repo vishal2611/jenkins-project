@@ -19,14 +19,23 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline pass"
-            mail to : "worthinwords26@gmail.com",
-            subject : "SUCCESS",
-            body : "Email working"
+            echo "Pipeline Pass"
+
+            mail(
+                to: "worthinwords26@gmail.com",
+                subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "${env.JOB_NAME} Build Succeeded.\n\nCheck Build URL: ${env.BUILD_URL}"
+            )
         }
 
         failure {
-            echo "Pipeline failed"
+            echo "Pipeline Failed"
+
+            mail(
+                to: "worthinwords26@gmail.com",
+                subject: "FAIL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "${env.JOB_NAME} Build Failed.\n\nCheck Build URL: ${env.BUILD_URL}"
+            )
         }
     }
 }
