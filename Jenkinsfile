@@ -1,16 +1,19 @@
 pipeline {
-  agent {label 'electronix'}
+    agent {
+        label 'electronix'
+    }
 
-  stages {
-    stage ('Hello') {
-           steps {
-             echo "Hello Jenkins"
-           }
-    stage ('Hello-Second') {
-      steps {
-        echo "Hello Jenkins second"
-      }
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello Jenkins"
+            }
+        }
+
+        stage('Hello-Second') {
+            steps {
+                echo "Hello Jenkins second"
+            }
+        }
     }
-    }
-  }
 }
