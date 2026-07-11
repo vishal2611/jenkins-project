@@ -20,6 +20,9 @@ pipeline {
     post {
         success {
             echo "Pipeline pass"
+            mail to : "worthinwords26@gmail.com",
+            subject : "SUCCESS",
+            body : "Email working"
         }
 
         failure {
